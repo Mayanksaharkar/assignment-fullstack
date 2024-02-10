@@ -94,12 +94,13 @@ function UsersContainer() {
           </div>
         </div>
       </dialog>
-      <div className='grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3  gap-4'>
+
+      <div className='grid  gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {users.map((user) => (
           <Fade>
             <div
               key={user.id}
-              className=' rounded-xl hover:transform hover:scale-105 transition-all duration-500'
+              className='w-full flex flex-row justify-center  rounded-xl hover:transform hover:scale-105 transition-all duration-500'
             >
               <UserCard id={user.id} name={user.name} showmodal={showmodal} />
             </div>
