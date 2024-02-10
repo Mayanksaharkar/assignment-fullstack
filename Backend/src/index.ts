@@ -80,7 +80,7 @@ app.put("/user/:id", (req, res) => {
       USERS.users[index] = { id: req.body.id, name: req.body.name };
       res.status(200).send("Updated");
     } else {
-      res.status(404).send("User not found");
+      res.status(401).send("User not found");
     }
   } catch (error) {
     res.status(500).send("Something went wrong");
