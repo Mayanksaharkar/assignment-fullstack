@@ -1,0 +1,11 @@
+{
+  "name": "assignment-fullstack",
+  "version": "1.0.0",
+  "description": "This is a simple assignment to test your skills in Full Stack Web Development. On successful completion of this assignment, you will be invited for a small interview for the position of Web Development Team Member at GDSC GHRIET Nagpur.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd Frontend && npm run dev\" \"cd Backend && npm start\""
+  },
+  "author": "",
+  "license": "ISC"
+}
