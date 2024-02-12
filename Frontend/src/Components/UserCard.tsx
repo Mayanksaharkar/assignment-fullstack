@@ -35,7 +35,7 @@ function UserCard(props) {
               />
             </svg>
           </span>
-          <div className='text-lg font-bold capitalize'>{props.name}</div>
+          <div className='text-lg font-bold capitalize overflow-hidden'>{props.name}</div>
         </div>
       </div>
       <div className='p-6 pt-0'>

@@ -28,7 +28,7 @@ function Form() {
   };
 
   return (
-    <div className='max-w-lg mx-auto grid grid-cols-12 gap-2 my-6 my-10'>
+    <div className='max-w-lg mx-auto grid grid-cols-12 gap-2  my-32'>
       <input
         type='number'
         placeholder='ID'
