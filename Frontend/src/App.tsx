@@ -4,7 +4,6 @@ import Navbar from "./Components/Navbar";
 import UsersContainer from "./Components/UsersContainer";
 import UserContextProvider from "./Context/UserContextProvider";
 import { ToastContainer } from "react-toastify";
-import { Fade } from "react-reveal";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (

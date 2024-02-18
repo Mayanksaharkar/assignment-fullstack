@@ -9,7 +9,7 @@ function UsersContainer() {
   const [name, setName] = useState("");
   const newUser = { id: Number(id), name: name };
 
-  const showmodal = (currUser) => {
+  const showmodal = (currUser ) => {
     console.log("click");
     setId(currUser.id);
     setName(currUser.name);
