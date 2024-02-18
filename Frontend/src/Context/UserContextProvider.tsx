@@ -10,12 +10,15 @@ const UserContextProvider = ({ children }) => {
 
   const fetchAllUsers = async () => {
     try {
-      const response = await fetch("http://localhost:3000/users", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://assignment-fullstack-six.vercel.app/users",
+        {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
 
       const json = await response.json();
       setUsers(json);
