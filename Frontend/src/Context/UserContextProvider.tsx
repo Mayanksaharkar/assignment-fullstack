@@ -61,10 +61,10 @@ const UserContextProvider = ({ children }) => {
     }
   };
 
-  const updateUser = async (id: Number, name: String) => {
+  const updateUser = async (currId: Number, id: Number, name: String) => {
     const newUser = { id: Number(id), name: name };
     try {
-      const response = await fetch(`http://localhost:3000/user/${id}`, {
+      const response = await fetch(`http://localhost:3000/user/${currId}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

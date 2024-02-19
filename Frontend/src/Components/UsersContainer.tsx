@@ -4,97 +4,10 @@ import UserCard from "./UserCard";
 import { toast } from "react-toastify";
 import { Fade } from "react-reveal";
 function UsersContainer() {
-  const { users, updateUser } = useContext(userContext);
-  const [id, setId] = useState(null);
-  const [name, setName] = useState("");
-
-  const modal = useRef(null);
-  const closebtn = useRef(null);
-
-  const showmodal = (currUser) => {
-    // console.log("click");
-    setId(currUser.id);
-    setName(currUser.name);
-    modal.current.showModal();
-  };
-
-  const handleUpdate = async () => {
-    const res = await updateUser(id, name);
-    if (res === 200) {
-      toast.success("Details Updated");
-    } else if (res === 401) {
-      toast.error("User Not Found!");
-    } else if (res === 500) {
-      toast.error("Server Down!");
-    } else {
-      toast.error("Something Went Wrong!");
-    }
-    closebtn.current.click();
-  };
+  const { users } = useContext(userContext);
 
   return (
     <div className=' w-full '>
-      <dialog
-        id='my_modal_5'
-        className='modal modal-bottom sm:modal-middle'
-        ref={modal}
-      >
-        <div className='modal-box'>
-          <form className=' w-full h-full mt-4'>
-            <div className='flex flex-col w-full h-full justify-center align-middle'>
-              <div className='flex col-md-6 w-full justify-center'>
-                <label className='form-control w-full max-w-xs'>
-                  ID:
-                  <input
-                    type='number'
-                    placeholder='Id Here'
-                    className='input input-bordered w-full max-w-xs rounded'
-                    value={id}
-                    disabled
-                  />
-                </label>
-              </div>
-              <div className='flex col-md-6 w-full justify-center my-4'>
-                <label className='form-control w-full max-w-xs' htmlFor='name'>
-                  Name:
-                  <input
-                    type='text'
-                    name='tag'
-                    placeholder='Name Here'
-                    className='input input-bordered w-full max-w-xs rounded'
-                    value={name}
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
-                  />
-                </label>
-              </div>
-
-              <div className='flex col-md-6 mt-11 w-full justify-center '>
-                <button
-                  className='btn btn-active btn-primary w-full max-w-xs '
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleUpdate();
-                  }}
-                >
-                  Update
-                </button>
-              </div>
-            </div>
-          </form>
-
-          <div className='modal-action'>
-            <form method='dialog'>
-              {/* if there is a button in form, it will close the modal */}
-              <button className='btn' id='closeBtn' ref={closebtn}>
-                Close
-              </button>
-            </form>
-          </div>
-        </div>
-      </dialog>
-
       <div className='grid  gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {users.map((user) => (
           <Fade>
@@ -102,7 +15,7 @@ function UsersContainer() {
               key={user.id}
               className='w-full flex flex-row justify-center  rounded-xl hover:transform hover:scale-105 transition-all duration-500'
             >
-              <UserCard id={user.id} name={user.name} showmodal={showmodal} />
+              <UserCard id={user.id} name={user.name}  />
             </div>
           </Fade>
         ))}
