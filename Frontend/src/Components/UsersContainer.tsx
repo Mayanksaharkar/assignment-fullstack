@@ -10,10 +10,10 @@ function UsersContainer() {
   const newUser = { id: Number(id), name: name };
 
   const showmodal = (currUser ) => {
-    console.log("click");
+    // console.log("click");
     setId(currUser.id);
     setName(currUser.name);
-    document.getElementById("showBtn").click();
+    document.getElementById("my_modal_5").showModal();
   };
 
   const handleUpdate = async () => {
@@ -32,12 +32,7 @@ function UsersContainer() {
 
   return (
     <div className=' w-full '>
-      <button
-        className='btn'
-        id='showBtn'
-        onClick={() => document.getElementById("my_modal_5").showModal()}
-        style={{ display: "none" }}
-      ></button>
+  
       <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
         <div className='modal-box'>
           <form className=' w-full h-full mt-4'>

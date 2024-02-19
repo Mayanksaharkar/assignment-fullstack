@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import userContext from "../Context/UserContext";
 import { toast } from "react-toastify";
 function Form() {
-  const { users, addUser } = useContext(userContext);
+  const {  addUser } = useContext(userContext);
   const [id, setId] = useState(null);
   const [name, setName] = useState("");
 
@@ -10,9 +10,9 @@ function Form() {
     if (id === null && name === "") {
       toast.warning("Enter the Details");
     } else {
-      console.log(id, name);
+      // console.log(id, name);
       const res = await addUser(id, name);
-      console.log(res);
+      // console.log(res);
       if (res === 200) {
         toast.success("User Created !");
       } else if (res === 409) {
@@ -31,6 +31,7 @@ function Form() {
     <div className='max-w-lg mx-auto grid grid-cols-12 gap-2  my-32'>
       <input
         type='number'
+        min={0}
         placeholder='ID'
         className='input w-full bg-base-100 max-w-xs col-span-3 appearance-none remove-arrow'
         value={id}
