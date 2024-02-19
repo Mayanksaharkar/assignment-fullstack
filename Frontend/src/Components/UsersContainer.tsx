@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import userContext from "../Context/UserContext";
 import UserCard from "./UserCard";
 import { toast } from "react-toastify";
@@ -7,13 +7,15 @@ function UsersContainer() {
   const { users, updateUser } = useContext(userContext);
   const [id, setId] = useState(null);
   const [name, setName] = useState("");
-  const newUser = { id: Number(id), name: name };
 
-  const showmodal = (currUser ) => {
+  const modal = useRef(null);
+  const closebtn = useRef(null);
+
+  const showmodal = (currUser) => {
     // console.log("click");
     setId(currUser.id);
     setName(currUser.name);
-    document.getElementById("my_modal_5").showModal();
+    modal.current.showModal();
   };
 
   const handleUpdate = async () => {
@@ -27,13 +29,16 @@ function UsersContainer() {
     } else {
       toast.error("Something Went Wrong!");
     }
-    document.getElementById("closeBtn").click();
+    closebtn.current.click();
   };
 
   return (
     <div className=' w-full '>
-  
-      <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
+      <dialog
+        id='my_modal_5'
+        className='modal modal-bottom sm:modal-middle'
+        ref={modal}
+      >
         <div className='modal-box'>
           <form className=' w-full h-full mt-4'>
             <div className='flex flex-col w-full h-full justify-center align-middle'>
@@ -73,7 +78,7 @@ function UsersContainer() {
                     handleUpdate();
                   }}
                 >
-                  Update Note
+                  Update
                 </button>
               </div>
             </div>
@@ -82,7 +87,7 @@ function UsersContainer() {
           <div className='modal-action'>
             <form method='dialog'>
               {/* if there is a button in form, it will close the modal */}
-              <button className='btn' id='closeBtn'>
+              <button className='btn' id='closeBtn' ref={closebtn}>
                 Close
               </button>
             </form>

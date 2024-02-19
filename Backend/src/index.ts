@@ -94,7 +94,7 @@ app.put("/user/:id", (req, res) => {
 
     if (index >= 0) {
       // console.log(index)
-      // assign new values
+      // assign new object
       USERS.users[index] = { id: req.body.id, name: req.body.name };
       res.status(200).send("Updated");
     } else {

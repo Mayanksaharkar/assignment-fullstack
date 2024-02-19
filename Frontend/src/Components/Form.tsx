@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import userContext from "../Context/UserContext";
 import { toast } from "react-toastify";
 function Form() {
-  const {  addUser } = useContext(userContext);
+  const { addUser } = useContext(userContext);
   const [id, setId] = useState(null);
   const [name, setName] = useState("");
 
@@ -36,7 +36,7 @@ function Form() {
         className='input w-full bg-base-100 max-w-xs col-span-3 appearance-none remove-arrow'
         value={id}
         onChange={(e) => {
-          setId(e.target.value);
+          setId(Number(e.target.value));
         }}
       />
       <input
